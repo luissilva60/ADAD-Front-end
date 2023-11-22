@@ -3,10 +3,10 @@ import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCar
 
 export default function PersonalProfile(props) {
   return (
-    <section className="vh-100" style={{ backgroundColor: '#f4f5f7' }}>
+    <section className="vh-50" style={{ backgroundColor: '#f4f5f7' }}>
       <MDBContainer className="py-5 h-100">
-        <MDBRow className="justify-content-center align-items-center h-100">
-          <MDBCol lg="10" className="mb-4 mb-lg-0">
+        <MDBRow className="justify-content-center align-items-center h-20">
+          <MDBCol lg="15" className="mb-4 mb-lg-0">
             <MDBCard className="mb-3" style={{ borderRadius: '.5rem' }}>
               <MDBRow className="g-0">
                 <MDBCol md="4" className="gradient-custom text-center text-white"
@@ -57,12 +57,10 @@ export default function PersonalProfile(props) {
                         <MDBCardText className="text-muted">{props.gender}</MDBCardText>
                       </MDBCol>
                     </MDBRow>
-
-                    <div className="d-flex justify-content-start">
-                      <a href="#!"><MDBIcon fab icon="facebook me-3" size="lg" /></a>
-                      <a href="#!"><MDBIcon fab icon="twitter me-3" size="lg" /></a>
-                      <a href="#!"><MDBIcon fab icon="instagram me-3" size="lg" /></a>
-                    </div>
+                    <hr className="mt-0 mb-4" />
+                    <MDBCol size="10" className="mb-3">
+                        <button className='button-74' tag="h10">APAGAR UTILIZADOR</button>
+                      </MDBCol>
                   </MDBCardBody>
                 </MDBCol>
               </MDBRow>

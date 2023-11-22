@@ -15,7 +15,13 @@ function MovieCard(props) {
           })}
         </Card.Text>*/}
         <Card.Text>
-          Year: {props.year}
+          Year: {props.year || props.ano}
+        </Card.Text>
+        <Card.Text>
+          Genres: {props.genres}
+        </Card.Text>
+        <Card.Text>
+          Average Score: {props.avgScore}
         </Card.Text>
         <Button href={"/movie/" + props._id} variant="outline-primary">Open Movie</Button>
       </Card.Body>

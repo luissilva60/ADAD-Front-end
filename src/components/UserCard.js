@@ -59,7 +59,7 @@ export default function PersonalProfile(props) {
                     </MDBRow>
                     <hr className="mt-0 mb-4" />
                     <MDBCol size="10" className="mb-3">
-                        <button className='button-74' tag="h10">APAGAR UTILIZADOR</button>
+                        <button className='button-74' tag="h10">VER UTILIZADOR</button>
                       </MDBCol>
                   </MDBCardBody>
                 </MDBCol>

@@ -17,6 +17,8 @@ import Movies from "./pages/Movies";
 import Users from "./pages/Users";
 import Movie from "./pages/Movie";
 import Footer from './components/Footer';
+import Map from './pages/Map'
+
 
 function App() {
   const [userData, setUserData] = useState(undefined);
@@ -40,6 +42,7 @@ function App() {
           <Route path="/movies" element={<Movies />} />
           <Route path="/users" element={<Users />} />
           <Route path="/movie/:id" element={<Movie />} />
+          <Route path="/map" element={<Map />} />
         </Routes>
         <Footer />
       </Router>

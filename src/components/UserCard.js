@@ -1,7 +1,15 @@
+import Button from 'react-bootstrap/Button';
+import {useNavigate} from 'react-router-dom';
+
 import React from 'react';
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
-
+import UserPage from '../pages/User';
+    
 export default function PersonalProfile(props) {
+    const navigate = useNavigate();
+    const navigateToUser = () => {
+        navigate('/user/' + props._id);
+      };
   return (
     <section className="vh-50" style={{ backgroundColor: '#f4f5f7' }}>
       <MDBContainer className="py-5 h-100">
@@ -59,7 +67,7 @@ export default function PersonalProfile(props) {
                     </MDBRow>
                     <hr className="mt-0 mb-4" />
                     <MDBCol size="10" className="mb-3">
-                        <button className='button-74' tag="h10">VER UTILIZADOR</button>
+                        <button onClick={navigateToUser} href={"/user/" + props._id} className='button-74' tag="h10">VER UTILIZADOR</button>
                       </MDBCol>
                   </MDBCardBody>
                 </MDBCol>

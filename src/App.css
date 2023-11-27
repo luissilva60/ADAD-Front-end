@@ -93,10 +93,10 @@ header.masthead .overlay {
 /* CSS */
 .button-74 {
   background-color: rgb(83, 112, 227);
-  border: 2px solid #422800;
+  border: 2px solid #f6f3f1;
   border-radius: 30px;
-  box-shadow: #422800 4px 4px 0 0;
-  color: #422800;
+  box-shadow: #5a5a5a 4px 4px 0 0;
+  color: #f2f0ec;
   cursor: pointer;
   display: inline-block;
   font-weight: 650;
@@ -114,11 +114,11 @@ header.masthead .overlay {
 }
 
 .button-74:hover {
-  background-color: #51c6de;
+  background-color: #4895dd;
 }
 
 .button-74:active {
-  box-shadow: #422800 2px 2px 0 0;
+  box-shadow: #dedcd8 2px 2px 0 0;
   transform: translate(2px, 2px);
 }
 

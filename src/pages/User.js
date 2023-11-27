@@ -19,24 +19,24 @@ import { userSession } from '../auth';
 const bytes = utf8ToBytes('foo'); 
 const bufCV = bufferCV(bytes);
 
-export default function MoviePage() {
+export default function UserPage() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const [movieData, setMovieData] = useState(null);
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
-    const fetchMovieDetails = async () => {
+    const fetchUserDetails = async () => {
       try {
-        const response = await fetch(`https://api-adad-e27e767b86bc.herokuapp.com/movies/${id}`);
+        const response = await fetch(`https://api-adad-e27e767b86bc.herokuapp.com/users/${id}`);
         const data = await response.json();
-        setMovieData(data);
+        setUserData(data);
       } catch (error) {
         console.error('Error fetching movie details:', error);
       }
     };
 
-    fetchMovieDetails();
+    fetchUserDetails();
   }, [id]);
 
   const submitMessage = async (e) => {
@@ -70,10 +70,10 @@ export default function MoviePage() {
 
   return (
     <div className="container pt-5 pb-5">
-      <h2>MOVIE</h2>
+      <h2>User</h2>
       <p></p>
      
-      <MDBCard>
+      {/* <MDBCard>
         <MDBCardBody>
           <MDBCardTitle>Card title</MDBCardTitle>
           <MDBCardSubTitle>Card subtitle</MDBCardSubTitle>
@@ -83,15 +83,15 @@ export default function MoviePage() {
           <MDBCardLink href='#'>Card link</MDBCardLink>
           <MDBCardLink href='#'>Another link</MDBCardLink>
         </MDBCardBody>
-      </MDBCard>
+      </MDBCard> */}
   
       {userSession.isUserSignedIn() ? <a href="#" onClick={submitMessage}>Blockchain transaction</a> : null}
 
-      {movieData && (
+      {userData && (
         <div>
-          <h3>{movieData.title}</h3>
-          <p>Genres: {movieData.genres}</p>
-          {/* Render other movie details as needed */}
+          <h3>{userData.name}</h3>
+          <p>Email: {userData.email}</p>
+          {/* Render other user details as needed */}
         </div>
       )}
     </div>

@@ -90,7 +90,7 @@ export default function UserPage() {
       {userData && (
         <div>
           <h3>{userData.name}</h3>
-          <p>Email: {userData.email}</p>
+          <p>Gender: {userData.gender}</p>
           {/* Render other user details as needed */}
         </div>
       )}

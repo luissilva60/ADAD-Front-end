@@ -18,6 +18,7 @@ import Users from "./pages/Users";
 import Movie from "./pages/Movie";
 import Footer from './components/Footer';
 import Map from './pages/Map'
+import User from './pages/User'
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
           <Route path="/users" element={<Users />} />
           <Route path="/movie/:id" element={<Movie />} />
           <Route path="/map" element={<Map />} />
+          <Route path="/user/:id" element={<User />} />
         </Routes>
         <Footer />
       </Router>

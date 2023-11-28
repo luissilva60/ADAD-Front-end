@@ -78,23 +78,36 @@ export default function UserPage() {
   };
 
   return (
+    
     <section style={{ backgroundColor: '#eee' }}>
       <MDBContainer className="py-5">
         <MDBRow>
+        {userData && (
+        <>
           <MDBCol lg="4">
             <MDBCard className="mb-4">
               <MDBCardBody className="text-center">
-                <MDBCardImage
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                  alt="avatar"
-                  className="rounded-circle"
-                  style={{ width: '150px' }}
-                  fluid />
-                <p className="text-muted mb-1">Full Stack Developer</p>
-                <p className="text-muted mb-4">Bay Area, San Francisco, CA</p>
+              {userData.gender === 'F' ? (
+                        <MDBCardImage 
+                        src="https://cdn-icons-png.flaticon.com/512/6214/6214743.png"
+                        alt="Female Avatar"
+                        className="my-5"
+                        style={{ width: '150px' }}
+                        fluid
+                        />
+                    ) : (
+                        <MDBCardImage 
+                        src="https://cdn-icons-png.flaticon.com/512/3001/3001764.png"
+                        alt="Male Avatar"
+                        className="my-5"
+                        style={{ width: '150px' }}
+                        fluid
+                        />
+                    )}
+                <p className="text-muted mb-1">Occupation: {userData.occupation}</p>
+                <p className="text-muted mb-4">Gender: {userData.gender}</p>
                 <div className="d-flex justify-content-center mb-2">
-                  <MDBBtn>Follow</MDBBtn>
-                  <MDBBtn outline className="ms-1">Message</MDBBtn>
+                    <button className='button-75' tag="h10">Apagar Utilizador</button>
                 </div>
               </MDBCardBody>
             </MDBCard>
@@ -134,7 +147,7 @@ export default function UserPage() {
                     <MDBCardText>Full Name</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">Johnatan Smith</MDBCardText>
+                    <MDBCardText className="text-muted">{userData.name}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -143,7 +156,7 @@ export default function UserPage() {
                     <MDBCardText>Email</MDBCardText>
                   </MDBCol>
                   <MDBCol sm="9">
-                    <MDBCardText className="text-muted">example@example.com</MDBCardText>
+                    <MDBCardText className="text-muted">{userData.email}</MDBCardText>
                   </MDBCol>
                 </MDBRow>
                 <hr />
@@ -241,24 +254,12 @@ export default function UserPage() {
                 </MDBCard>
               </MDBCol>
             </MDBRow>
-          </MDBCol>
+
+        </MDBCol>
+        </>
+        )}
         </MDBRow>
       </MDBContainer>
     </section>
-    // <div className="container pt-5 pb-5">
-    //   <h2>User</h2>
-    //   <p></p>
-        
-    //   {userSession.isUserSignedIn() ? <a href="#" onClick={submitMessage}>Blockchain transaction</a> : null}
-
-    //   {userData && (
-    //     <div>
-    //       <h3>{userData.name}</h3>
-    //       <p>Gender: {userData.gender}</p>
-    //       {/* Render other user details as needed */}
-    //     </div>
-    //   )}
-    // </div>
-    
   );
 }

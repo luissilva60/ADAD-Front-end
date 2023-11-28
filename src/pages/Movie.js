@@ -72,28 +72,24 @@ export default function MoviePage() {
     <div className="container pt-5 pb-5">
       <h2>MOVIE</h2>
       <p></p>
-     
+      
       <MDBCard>
         <MDBCardBody>
-          <MDBCardTitle>Card title</MDBCardTitle>
-          <MDBCardSubTitle>Card subtitle</MDBCardSubTitle>
-          <MDBCardText>
-            Some quick example text to build on the card title and make up the bulk of the card's content.
-          </MDBCardText>
-          <MDBCardLink href='#'>Card link</MDBCardLink>
-          <MDBCardLink href='#'>Another link</MDBCardLink>
+          {movieData && (
+            <>
+              <MDBCardTitle>Título: {movieData.title}</MDBCardTitle>
+              <MDBCardSubTitle>Card subtitle</MDBCardSubTitle>
+              <MDBCardText>
+                Some quick example text to build on the card title and make up the bulk of the card's content.
+              </MDBCardText>
+              <MDBCardLink href='#'>Card link</MDBCardLink>
+              <MDBCardLink href='#'>Another link</MDBCardLink>
+            </>
+          )}
         </MDBCardBody>
       </MDBCard>
   
       {userSession.isUserSignedIn() ? <a href="#" onClick={submitMessage}>Blockchain transaction</a> : null}
-
-      {movieData && (
-        <div>
-          <h3>{movieData.title}</h3>
-          <p>Genres: {movieData.genres}</p>
-          {/* Render other movie details as needed */}
-        </div>
-      )}
     </div>
   );
 }

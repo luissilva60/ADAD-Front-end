@@ -128,3 +128,43 @@ header.masthead .overlay {
     padding: 0 25px;
   }
 }
+
+.button-75 {
+  background-color: rgb(241, 37, 14);
+  border: 2px solid #f6f3f1;
+  border-radius: 30px;
+  box-shadow: #5a5a5a 4px 4px 0 0;
+  color: #f2f0ec;
+  cursor: pointer;
+  margin-right: 195px;
+  margin-top: -20px;
+  display: inline-block;
+  font-weight: 650;
+  font-size: 14px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  position: relative;
+  top: 50%;
+  left: 25%;
+}
+
+.button-75:hover {
+  background-color: rgb(238, 143, 124);
+}
+
+.button-75:active {
+  box-shadow: #dedcd8 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-75 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}

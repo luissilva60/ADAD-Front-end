@@ -19,7 +19,7 @@ import Movie from "./pages/Movie";
 import Footer from './components/Footer';
 import Map from './pages/Map'
 import User from './pages/User'
-
+import React from 'react';
 
 function App() {
   const [userData, setUserData] = useState(undefined);

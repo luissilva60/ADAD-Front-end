@@ -19,7 +19,7 @@ const CinemaMap = () => {
         fetchCinemas();
     }, []);
 
-    const center = { lat: 0, lng: 0 };
+    const center = { lat: 38.736946, lng: -9.142685 };
 
     const mapContainerStyle = {
         height: '400px',
@@ -28,35 +28,41 @@ const CinemaMap = () => {
 
     return (
         <LoadScript
-            googleMapsApiKey="AIzaSyBSXwa7dbHxfTU-qvDTE5GXskpCHr951sg"
+            googleMapsApiKey="AIzaSyAeXJMCul0dV0qlry9bSDTx9K9dKRLJZSY"
         >
             <GoogleMap
                 mapContainerStyle={mapContainerStyle}
                 center={center}
-                zoom={2}
+                zoom={12}
             >
                 {cinemas.map((cinema) => (
                     <Marker
                         key={cinema._id}
                         position={{ lat: cinema.y, lng: cinema.x }}
+                        icon={{
+                            url: '../cinema.png',
+                            scaledSize: new window.google.maps.Size(40, 40),
+                        }}
                         onClick={() => {
                             setSelectedCinema(cinema);
                         }}
-                    />
-                ))}
-
-                {selectedCinema && (
-                    <InfoWindow
-                        position={{ lat: selectedCinema.y, lng: selectedCinema.x }}
-                        onCloseClick={() => {
-                            setSelectedCinema(null);
-                        }}
                     >
-                        <div>
-                            <h5>{selectedCinema.name}</h5>
-                        </div>
-                    </InfoWindow>
-                )}
+                        {selectedCinema === cinema && (
+                            <InfoWindow
+                                position={{ lat: selectedCinema.y, lng: selectedCinema.x }}
+                                onCloseClick={() => {
+                                    setSelectedCinema(null);
+
+                                }}
+                            >
+                                <div>
+                                    <h5>{selectedCinema.name}</h5>
+                                    {/* Add additional information here if needed */}
+                                </div>
+                            </InfoWindow>
+                        )}
+                    </Marker>
+                ))}
             </GoogleMap>
         </LoadScript>
     );

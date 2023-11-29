@@ -1,6 +1,6 @@
 import { Nav, Navbar, NavLink, Image } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { userSession, authenticate } from '../auth';
+import { userSession, authenticate, verifyUser, login} from '../auth';
 
 const Navigation = () => {
     return (
@@ -13,17 +13,24 @@ const Navigation = () => {
                             <NavLink  eventKey="2" as={Link} to="/movies">Movies</NavLink>
                             <NavLink  eventKey="3" as={Link} to="/users">Users</NavLink>
                             <NavLink  eventKey="4" as={Link} to="/map">Map</NavLink>
+                            {!verifyUser() &&
+                                <NavLink  eventKey="5" as={Link} to="/login">Login</NavLink>
+
+                            }
+
                         </Nav>
                     </Navbar.Collapse>
-                    {!userSession.isUserSignedIn() ? 
-                        <a className="nav-link" href="#" 
-                            onClick={() => authenticate()}>Digital Wallet Login</a> : 
-                        <a className="nav-link" href="#" 
-                            onClick={ () => {
-                                userSession.signUserOut();
-                                window.location = '/';
-                            }} >Signout
-                        </a> 
+
+                    {!userSession.isUserSignedIn() ?
+                        <a className="nav-link" href="#"
+                           onClick={() => authenticate()}>Digital Wallet Login</a> :
+                        <a className="nav-link" href="#"
+                           onClick={ () => {
+                               userSession.signUserOut();
+                               window.location = '/';
+                           }} >Signout
+                        </a>
+
                     }
                 </div>  
             </Navbar>

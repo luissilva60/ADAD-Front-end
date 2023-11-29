@@ -13,6 +13,7 @@ export default function App() {
           <p className="lead">
             <a className="btn btn-primary btn-lg" href="/movies" role="button">Movies &rarr;</a>
             <a className="btn btn-primary btn-lg ms-1" href="/users" role="button">Users &rarr;</a>
+            <a className="btn btn-primary btn-lg ms-1" href="/map" role="button">Mapa &rarr;</a>
           </p>
         </div>
       </div>

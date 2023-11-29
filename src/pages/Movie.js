@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import {
   MDBCard,
   MDBCardBody,
@@ -16,7 +16,7 @@ import { utf8ToBytes } from '@stacks/common';
 import { userSession } from '../auth';
 
 
-const bytes = utf8ToBytes('foo'); 
+const bytes = utf8ToBytes('foo');
 const bufCV = bufferCV(bytes);
 
 export default function MoviePage() {
@@ -65,35 +65,33 @@ export default function MoviePage() {
     };
 
     const response = await openContractCall(options);
-    
+
   };
 
   return (
     <div className="container pt-5 pb-5">
       <h2>MOVIE</h2>
       <p></p>
-     
+
       <MDBCard>
         <MDBCardBody>
-          <MDBCardTitle>Card title</MDBCardTitle>
-          <MDBCardSubTitle>Card subtitle</MDBCardSubTitle>
-          <MDBCardText>
-            Some quick example text to build on the card title and make up the bulk of the card's content.
-          </MDBCardText>
-          <MDBCardLink href='#'>Card link</MDBCardLink>
-          <MDBCardLink href='#'>Another link</MDBCardLink>
+          {movieData && (
+            <>
+              <MDBCardTitle><h3>Título: {movieData.title}</h3></MDBCardTitle>
+              <p></p><p></p>
+              <MDBCardSubTitle><h5>Genre: {movieData.genres}</h5></MDBCardSubTitle>
+              <MDBCardSubTitle><h5>Year: {movieData.year || movieData.ano}</h5></MDBCardSubTitle>
+              <MDBCardSubTitle><h5>Average Score: {movieData.avgScore}</h5></MDBCardSubTitle> <p></p>
+              <h3><p>Comments:</p></h3>
+              {movieData.comments.map(c => {
+                return (<MDBCardSubTitle><h5>-  {c.comment}</h5></MDBCardSubTitle>)
+              })}
+            </>
+          )}
         </MDBCardBody>
       </MDBCard>
-  
-      {userSession.isUserSignedIn() ? <a href="#" onClick={submitMessage}>Blockchain transaction</a> : null}
 
-      {movieData && (
-        <div>
-          <h3>{movieData.title}</h3>
-          <p>Genres: {movieData.genres}</p>
-          {/* Render other movie details as needed */}
-        </div>
-      )}
+      {userSession.isUserSignedIn() ? <a href="#" onClick={submitMessage}>Blockchain transaction</a> : null}
     </div>
   );
 }

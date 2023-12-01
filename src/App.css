@@ -168,3 +168,70 @@ header.masthead .overlay {
     padding: 0 25px;
   }
 }
+.login-link {
+  color: #fff; /* Text color for the login link */
+  padding: 0.5rem 1rem; /* Adjust padding as needed */
+  text-decoration: none; /* Remove default underline */
+}
+
+.login-link:hover {
+  color: #ccc; /* Adjust color on hover if needed */
+}
+
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-heading {
+  text-align: center;
+  color: #333;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-label {
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.login-input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+}
+
+.login-button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-button:hover {
+  background-color: #0056b3;
+}
+
+.login-error-message {
+  color: red;
+  margin-top: 10px;
+}

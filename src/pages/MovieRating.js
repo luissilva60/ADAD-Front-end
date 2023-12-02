@@ -19,11 +19,7 @@ export default function MovieRating() {
     if(rating && comment) {
       console.log(rating)
       console.log(comment)
-      console.log(movie_id)
       const requestBody = {
-        _id: "",
-        movie_id: movie_id,
-        user_id: _id,
         comment: comment,
         date: Date.now(),
       };

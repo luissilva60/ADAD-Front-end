@@ -247,6 +247,15 @@ body {
   color: white;
 }
 
+.movie-image {
+  max-width: 250px; /* Adjust the size as needed */
+  max-height: 250px; /* Adjust the size as needed */
+  object-fit: cover; /* Maintain aspect ratio and cover the container */
+  border-radius: 25px; /* Optional: Add border-radius for a rounded look */
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
 .movie-details-container {
   max-width: 800px; /* Adjusted max-width for better readability */
   margin: 20px auto; /* Added some margin to the top */

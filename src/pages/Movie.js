@@ -69,7 +69,7 @@ export default function MoviePage() {
   return (
     <div className="movie-details-container dark-theme">
       {/* Movie Title */}
-      <h2 className="movie-title">MOVIE</h2>
+      <h2 className="movie-title">Movie</h2>
       <p></p>
 
       {/* Movie Card */}
@@ -84,6 +84,7 @@ export default function MoviePage() {
                     Título: {movieData.title}
                   </h3>
                 </MDBCardTitle>
+                <img src="../movie.jpg" className="movie-image"/>
               </div>
               <p></p>
               <p></p>

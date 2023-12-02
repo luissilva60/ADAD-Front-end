@@ -28,7 +28,7 @@ const CinemaMap = () => {
 
     return (
         <LoadScript
-            googleMapsApiKey="AIzaSyAeXJMCul0dV0qlry9bSDTx9K9dKRLJZSY"
+            googleMapsApiKey="AIzaSyBnRw6pPuuCuz0Kh4MU_YNb02pOc82U56o"
         >
             <GoogleMap
                 mapContainerStyle={mapContainerStyle}

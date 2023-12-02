@@ -58,30 +58,19 @@ export async function login(email, password) {
 }
 
 
-export function verifyUser() {
-  // Use react-cookie to get the 'auth' cookie
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [cookies] = useCookies(['auth']);
-  const info = verifyToken(cookies.auth)
-  if(info.isValid){
-    console.log(info)
 
-    return !!cookies.auth;
-  }else{
-    console.log("Error in validation")
-  }
-  // Check if the 'auth' cookie exists and is not empty
 
-}
+
+
 export function getUserData() {
   return userSession.loadUserData();
 }
 
 
 export async function verifyToken(token) {
-
+  console.log(token)
   try {
-    const response = await fetch('http://localhost:3000/users/verify-token', {
+    const response = await fetch('https://api-adad-e27e767b86bc.herokuapp.com/users/verify-token', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -93,13 +82,14 @@ export async function verifyToken(token) {
 
     if (!response.ok) {
       console.log("Server Error")
+      return { isValid: false, message: 'Server Error' };
     }
 
 
     const data = await response.json();
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    console.log('Verification successful:', data);
+    console.log('Verification:', data);
     return data;
 
 

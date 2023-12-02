@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useCookies } from 'react-cookie';
-
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { login } from '../auth';
+import '../App.css';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -16,9 +18,9 @@ const Login = () => {
             console.log(response);
 
             setCookie('auth', response.token);
-
+            toast.success('Login successful');
             // Redirect to a protected route after successful login
-
+            window.location.href = '/';
         } catch (error) {
             console.log(error);
             setError('Invalid email or password. Please try again.');
@@ -26,27 +28,29 @@ const Login = () => {
     };
 
     return (
-        <div>
-            <h2>Login</h2>
-            <form>
+        <div className="login-container">
+            <h2 className="login-heading">Login</h2>
+            <form className="login-form">
                 <div>
-                    <label>Email:</label>
+                    <label className="login-label">Email:</label>
                     <input
+                        className="login-input"
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                     />
                 </div>
                 <div>
-                    <label>Password:</label>
+                    <label className="login-label">Password:</label>
                     <input
+                        className="login-input"
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
                 </div>
-                {error && <p style={{ color: 'red' }}>{error}</p>}
-                <button type="button" onClick={handleLogin}>
+                {error && <p className="login-error-message">{error}</p>}
+                <button className="login-button" type="button" onClick={handleLogin}>
                     Login
                 </button>
             </form>

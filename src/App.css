@@ -237,7 +237,7 @@ body {
 }
 
 
-/* MoviePage.css */
+
 
 body {
   margin: 0;
@@ -248,8 +248,8 @@ body {
 }
 
 .movie-details-container {
-  max-width: 1200px;
-  margin: 0 auto;
+  max-width: 800px; /* Adjusted max-width for better readability */
+  margin: 20px auto; /* Added some margin to the top */
   padding: 20px;
 }
 
@@ -257,6 +257,7 @@ body {
   background-color: #444;
   color: white;
   margin-top: 20px;
+  border-radius: 10px; /* Added border-radius for a softer look */
 }
 
 .dark-theme {
@@ -273,14 +274,9 @@ body {
   align-items: center;
 }
 
-.movie-details-image {
-  width: 150px;
-  height: auto;
-  margin-left: 20px;
-}
-
 /* Movie Title */
 .movie-title {
+  color: white;
   font-size: 2em;
   margin-bottom: 10px;
 }
@@ -307,13 +303,14 @@ body {
 
 /* Blockchain Transaction Link */
 .blockchain-link {
-  display: block;
+  display: inline-block; /* Changed from block to inline-block for better alignment */
   margin-top: 20px;
   text-decoration: none;
   color: #3498db;
   font-weight: bold;
+  border-bottom: 2px solid #3498db; /* Added an underline with a border-bottom */
 }
 
 .blockchain-link:hover {
-  text-decoration: underline;
+  text-decoration: none; /* Removed underline on hover */
 }

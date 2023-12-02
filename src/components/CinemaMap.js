@@ -22,10 +22,9 @@ const CinemaMap = () => {
         fetchCinemas();
 
         return () => {
-            // Cleanup function to unload the Google Maps API when the component is unmounted
             setMapLoaded(false);
         };
-    }, []); // Empty dependency array to run the effect only once on mount
+    }, []); 
 
     const center = { lat: 38.736946, lng: -9.142685 };
 
@@ -34,7 +33,7 @@ const CinemaMap = () => {
         width: '100%',
     };
     const infoWindowStyle = {
-        width: '220px', // Set the width to match the desired width of the image
+        width: '220px', 
     };
     const onLoad = () => {
         setMapLoaded(true);
@@ -43,9 +42,9 @@ const CinemaMap = () => {
     const onError = () => {
         console.error('Error loading Google Maps API');
         if (retryCount < 5) {
-            // Retry up to 5 times (adjust as needed)
+            
             setRetryCount(retryCount + 1);
-            setMapLoaded(false); // Reset mapLoaded state for the retry
+            setMapLoaded(false); 
         } else {
             console.error('Exceeded maximum retry attempts. Reloading the page...');
             handleLoadError();
@@ -53,10 +52,9 @@ const CinemaMap = () => {
     };
 
     const handleLoadError = () => {
-        // Reload the page
         setTimeout(() => {
             window.location.reload();
-        }, 3000); // You can adjust the delay (in milliseconds) before reloading
+        }, 3000); 
     };
 
     return (

@@ -51,7 +51,7 @@ export default function MoviePage() {
     const options = {
       contractAddress: "ST27519QH6K6AYYJ8BGRVF778655QPRQBWYHZY26Q",
       contractName:
-        "blanket-since-hint-rabbit-audit-oppose-suit-flush-relax-know-modify-voice-breeze-afraid-amazing-sell-vacant-cause-end-chaos-tilt-there-south-chicken",
+        "blanket-since",
       functionName: "test-emit-event",
       functionArgs,
       appDetails: {

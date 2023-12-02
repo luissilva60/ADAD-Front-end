@@ -10,7 +10,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
-    const [, setCookie] = useCookies(['auth']);  // Note the comma before setCookie
+    const [, setCookie] = useCookies(['auth']);  
 
     const handleLogin = async () => {
         try {
@@ -19,7 +19,6 @@ const Login = () => {
 
             setCookie('auth', response.token);
             toast.success('Login successful');
-            // Redirect to a protected route after successful login
             window.location.href = '/';
         } catch (error) {
             console.log(error);

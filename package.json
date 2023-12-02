@@ -17,6 +17,7 @@
     "react-bootstrap": "^2.9.1",
     "react-cookie": "^6.1.1",
     "react-dom": "^18.2.0",
+    "react-rating-stars-component": "^2.2.0",
     "react-router-dom": "^6.18.0",
     "react-script-loader-hoc": "^1.2.2",
     "react-scripts": "5.0.1",

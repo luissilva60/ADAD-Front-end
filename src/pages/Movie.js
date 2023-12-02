@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Button from 'react-bootstrap/Button';
 import {
   MDBCard,
   MDBCardBody,
@@ -20,6 +21,9 @@ const bufCV = bufferCV(bytes);
 export default function MoviePage() {
   const { id } = useParams();
   const navigate = useNavigate();
+  const navigateToMovieRat = () => {
+    navigate('/movierating/' + movieData._id);
+  };
 
   const [movieData, setMovieData] = useState(null);
 
@@ -73,10 +77,10 @@ export default function MoviePage() {
       <p></p>
 
       {/* Movie Card */}
+      {movieData && (
+      <>
       <MDBCard className="dark-card movie-card">
         <MDBCardBody>
-          {movieData && (
-            <>
               {/* Movie Header with Title and Image */}
               <div className="movie-details-header">
                 <MDBCardTitle>
@@ -115,10 +119,15 @@ export default function MoviePage() {
                   ))}
                 </div>
               )}
-            </>
-          )}
+            
         </MDBCardBody>
+        <div className="d-flex justify-content-center mb-2">
+          <button onClick={navigateToMovieRat} href={"/movierating/" + movieData._id} className='button-76' tag="h10">Rate Movie</button>
+        </div>
       </MDBCard>
+      </>
+      )}
+
 
       {/* Blockchain Transaction Link */}
       {userSession.isUserSignedIn() && (

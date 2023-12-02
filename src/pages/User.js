@@ -51,7 +51,8 @@ export default function UserPage() {
 
       if (response.ok) {
         // Handle successful deletion, update UI or perform additional actions
-        console.log('User deleted successfully');    
+        console.log('User deleted successfully');
+        navigate('/users/');    
       } else {
         // Handle errors, maybe show an error message to the user
         console.error('Failed to delete user');

@@ -168,6 +168,46 @@ header.masthead .overlay {
     padding: 0 25px;
   }
 }
+
+.button-76 {
+  background-color: rgb(46, 46, 46);
+  border: 2px solid #f6f3f1;
+  border-radius: 30px;
+  box-shadow: #5a5a5a 4px 4px 0 0;
+  color: #f2f0ec;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 650;
+  font-size: 20px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  position: relative;
+  top: 50%;
+  margin-top: 20px;
+  margin-block-end: 20px;
+}
+
+.button-76:hover {
+  background-color: #757676;
+}
+
+.button-76:active {
+  box-shadow: #dedcd8 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-76 {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}
+
 .login-link {
   color: #fff; /* Text color for the login link */
   padding: 0.5rem 1rem; /* Adjust padding as needed */
@@ -323,5 +363,3 @@ body {
 .blockchain-link:hover {
   text-decoration: none; /* Removed underline on hover */
 }
-
-

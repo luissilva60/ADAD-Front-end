@@ -17,6 +17,7 @@ import { userSession } from '../auth';
 import '../App.css';
 
 
+
 const bytes = utf8ToBytes('foo');
 const bufCV = bufferCV(bytes);
 
@@ -48,9 +49,9 @@ export default function MoviePage() {
     ];
 
     const options = {
-      contractAddress: '',
-      contractName: '',
-      functionName: 'set-value',
+      contractAddress: 'ST27519QH6K6AYYJ8BGRVF778655QPRQBWYHZY26Q',
+      contractName: 'blanket-since-hint-rabbit-audit-oppose-suit-flush-relax-know-modify-voice-breeze-afraid-amazing-sell-vacant-cause-end-chaos-tilt-there-south-chicken',
+      functionName: 'test-emit-event',
       functionArgs,
       appDetails: {
         name: 'Movies App Rating',

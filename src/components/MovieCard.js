@@ -6,14 +6,6 @@ function MovieCard(props) {
     <Card style={{ width: '18rem' }} className="mb-3">
       <Card.Body>
         <Card.Title>{props.title}</Card.Title>
-        {/*<Card.Text>
-          Genres: 
-          {props.genres.map((genre, index) => {
-            return(
-                <span key={index}>{genre} </span>
-            )
-          })}
-        </Card.Text>*/}
         <Card.Text>
           Year: {props.year || props.ano}
         </Card.Text>

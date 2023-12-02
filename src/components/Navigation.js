@@ -64,23 +64,30 @@ const Navigation = () => {
                     <Navbar.Toggle aria-controls="navbarScroll" data-bs-toggle="collapse" data-bs-target="#navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav>
-                            <NavLink  eventKey="1" as={Link} to="/">Home</NavLink>
-                            <NavLink  eventKey="2" as={Link} to="/movies">Movies</NavLink>
-                            <NavLink  eventKey="3" as={Link} to="/users">Users</NavLink>
-                            <NavLink  eventKey="4" as={Link} to="/map">Map</NavLink>
+                            <NavLink eventKey="1" as={Link} to="/">Home</NavLink>
+                            <NavLink eventKey="2" as={Link} to="/movies">Movies</NavLink>
+                            <NavLink eventKey="3" as={Link} to="/users">Users</NavLink>
+                            <NavLink eventKey="4" as={Link} to="/map">Map</NavLink>
+
                             {!isUserVerified && (
                                 <NavLink eventKey="5" as={Link} to="/login" className="login-link">
                                     Login
                                 </NavLink>
                             )}
+
                             {isUserVerified && (
-                                <Button onClick={handleSignOut} variant="outline-light">
-                                    Sign Out
-                                </Button>
+                                <>
+                                    <NavLink eventKey="6" as={Link} to="/profile">
+                                        Profile
+                                    </NavLink>
+
+                                    <Button onClick={handleSignOut} variant="outline-light">
+                                        Sign Out
+                                    </Button>
+                                </>
                             )}
-
-
                         </Nav>
+
                     </Navbar.Collapse>
 
                     {!userSession.isUserSignedIn() ?
@@ -90,7 +97,7 @@ const Navigation = () => {
                            onClick={ () => {
                                userSession.signUserOut();
                                window.location = '/';
-                           }} >Signout
+                           }} >Signout Wallet
                         </a>
 
                     }

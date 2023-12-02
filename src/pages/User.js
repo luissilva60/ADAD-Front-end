@@ -39,22 +39,18 @@ export default function UserPage() {
 
   const deleteUser = async() => {
     try {
-      // Make a DELETE request to the server
       const response = await fetch(`https://api-adad-e27e767b86bc.herokuapp.com/users/${userData._id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
           'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uS2V5IjoxMSwiaWF0IjoxNzAxMTczMDk0LCJleHAiOjE3MDExNzY2OTR9.WtBwVNHAz-yknSy7Wi6gi3IBuKrks7KnoyQdEF4tg_I'
-          // Add any additional headers if needed (e.g., authorization token)
         },
       });
 
       if (response.ok) {
-        // Handle successful deletion, update UI or perform additional actions
         console.log('User deleted successfully');
         navigate('/users/');    
       } else {
-        // Handle errors, maybe show an error message to the user
         console.error('Failed to delete user');
       }
     } catch (error) {

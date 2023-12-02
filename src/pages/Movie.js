@@ -72,28 +72,24 @@ export default function MoviePage() {
 
   return (
     <div className="movie-details-container dark-theme">
-      {/* Movie Title */}
       <h2 className="movie-title">Movie</h2>
       <p></p>
 
-      {/* Movie Card */}
       {movieData && (
-      <>
-      <MDBCard className="dark-card movie-card">
-        <MDBCardBody>
-              {/* Movie Header with Title and Image */}
+        <>
+          <MDBCard className="dark-card movie-card">
+            <MDBCardBody>
               <div className="movie-details-header">
                 <MDBCardTitle>
                   <h3 className="movie-main-title">
                     Título: {movieData.title}
                   </h3>
                 </MDBCardTitle>
-                <img src="../movie.jpg" className="movie-image"/>
+                <img src="../movie.jpg" className="movie-image" />
               </div>
               <p></p>
               <p></p>
 
-              {/* Movie Details - Genre, Year, Average Score */}
               <div className="movie-details-details">
                 <MDBCardSubTitle>
                   <h5>Genre: {movieData.genres}</h5>
@@ -106,7 +102,6 @@ export default function MoviePage() {
                 </MDBCardSubTitle>
               </div>
 
-              {/* Movie Comments */}
               {movieData.comments && movieData.comments.length > 0 && (
                 <div className="movie-details-comments">
                   <h3>
@@ -119,15 +114,14 @@ export default function MoviePage() {
                   ))}
                 </div>
               )}
-            
-        </MDBCardBody>
-        <div className="d-flex justify-content-center mb-2">
-          <button onClick={navigateToMovieRat} href={"/movierating/" + movieData._id} className='button-76' tag="h10">Rate Movie</button>
-        </div>
-      </MDBCard>
-      </>
-      )}
 
+            </MDBCardBody>
+            <div className="d-flex justify-content-center mb-2">
+              <button onClick={navigateToMovieRat} href={"/movierating/" + movieData._id} className='button-76' tag="h10">Rate Movie</button>
+            </div>
+          </MDBCard>
+        </>
+      )}
 
       {/* Blockchain Transaction Link */}
       {userSession.isUserSignedIn() && (

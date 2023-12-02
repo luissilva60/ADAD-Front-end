@@ -98,7 +98,6 @@ const CinemaMap = () => {
                                                     style={{ width: '200px', height: 'auto' }}
                                                 />
                                             )}
-                                            {/* Add additional information here if needed */}
                                         </div>
                                     </InfoWindow>
                                 )}

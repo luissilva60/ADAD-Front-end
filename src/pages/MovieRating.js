@@ -14,8 +14,8 @@ export default function MovieRating() {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent the default form submission behavior
-    // Add logic to submit the rating and comment
+    e.preventDefault(); 
+
     if(rating && comment) {
       console.log(rating)
       console.log(comment)
@@ -24,7 +24,6 @@ export default function MovieRating() {
         date: Date.now(),
       };
     }
-    // Navigate or perform any other actions as needed
   };
 
   return (

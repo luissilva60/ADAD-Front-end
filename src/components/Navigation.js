@@ -15,10 +15,8 @@ const Navigation = () => {
     }
 
     const handleSignOut = () => {
-        // Perform sign-out logic
         signOut();
 
-        // Redirect to the home page
         window.location.href = '/';
     };
     function signOut() {

@@ -21,6 +21,7 @@ import Map from './pages/Map'
 import User from './pages/User'
 import React from 'react';
 import Login from './pages/Login'
+import Profile from "./pages/Profile";
 
 function App() {
   const [userData, setUserData] = useState(undefined);
@@ -47,6 +48,7 @@ function App() {
           <Route path="/map" element={<Map />} />
           <Route path="/user/:id" element={<User />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
         <Footer />
       </Router>

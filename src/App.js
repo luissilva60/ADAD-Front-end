@@ -22,6 +22,7 @@ import User from './pages/User'
 import React from 'react';
 import Login from './pages/Login'
 import MovieRating from './pages/MovieRating'
+import Profile from './pages/Profile'
 
 
 function App() {
@@ -50,6 +51,7 @@ function App() {
           <Route path="/user/:id" element={<User />} />
           <Route path="/login" element={<Login />} />
           <Route path="/movierating/:id" element={<MovieRating />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
         <Footer />
       </Router>

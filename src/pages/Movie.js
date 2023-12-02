@@ -14,6 +14,7 @@ import {
 } from '@stacks/transactions';
 import { utf8ToBytes } from '@stacks/common';
 import { userSession } from '../auth';
+import '../App.css';
 
 
 const bytes = utf8ToBytes('foo');
@@ -69,29 +70,46 @@ export default function MoviePage() {
   };
 
   return (
-    <div className="container pt-5 pb-5">
-      <h2>MOVIE</h2>
-      <p></p>
+      <div className="movie-details-container dark-theme">
+        {/* Movie Title */}
+        <h2 className="movie-title">MOVIE</h2>
+        <p></p>
 
-      <MDBCard>
-        <MDBCardBody>
-          {movieData && (
-            <>
-              <MDBCardTitle><h3>Título: {movieData.title}</h3></MDBCardTitle>
-              <p></p><p></p>
-              <MDBCardSubTitle><h5>Genre: {movieData.genres}</h5></MDBCardSubTitle>
-              <MDBCardSubTitle><h5>Year: {movieData.year || movieData.ano}</h5></MDBCardSubTitle>
-              <MDBCardSubTitle><h5>Average Score: {movieData.avgScore}</h5></MDBCardSubTitle> <p></p>
-              <h3><p>Comments:</p></h3>
-              {movieData.comments.map(c => {
-                return (<MDBCardSubTitle><h5>-  {c.comment}</h5></MDBCardSubTitle>)
-              })}
-            </>
-          )}
-        </MDBCardBody>
-      </MDBCard>
+        {/* Movie Card */}
+        <MDBCard className="dark-card movie-card">
+          <MDBCardBody>
+            {movieData && (
+                <>
+                  {/* Movie Header with Title and Image */}
+                  <div className="movie-details-header">
+                    <MDBCardTitle><h3 className="movie-main-title">Título: {movieData.title}</h3></MDBCardTitle>
+                    <img src={movieData.photoPath} alt={movieData.title} className="movie-details-image" />
+                  </div>
+                  <p></p><p></p>
 
-      {userSession.isUserSignedIn() ? <a href="#" onClick={submitMessage}>Blockchain transaction</a> : null}
-    </div>
+                  {/* Movie Details - Genre, Year, Average Score */}
+                  <div className="movie-details-details">
+                    <MDBCardSubTitle><h5>Genre: {movieData.genres}</h5></MDBCardSubTitle>
+                    <MDBCardSubTitle><h5>Year: {movieData.year || movieData.ano}</h5></MDBCardSubTitle>
+                    <MDBCardSubTitle><h5>Average Score: {movieData.avgScore}</h5></MDBCardSubTitle>
+                  </div>
+
+                  {/* Movie Comments */}
+                  <div className="movie-details-comments">
+                    <h3><p>Comments:</p></h3>
+                    {movieData.comments.map((c, index) => (
+                        <MDBCardSubTitle key={index}><h5>-  {c.comment}</h5></MDBCardSubTitle>
+                    ))}
+                  </div>
+                </>
+            )}
+          </MDBCardBody>
+        </MDBCard>
+
+        {/* Blockchain Transaction Link */}
+        {userSession.isUserSignedIn() && (
+            <a href="#" onClick={submitMessage} className="blockchain-link">Blockchain transaction</a>
+        )}
+      </div>
   );
 }

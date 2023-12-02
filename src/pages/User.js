@@ -26,11 +26,13 @@ import { utf8ToBytes } from '@stacks/common';
 import { userSession } from '../auth';
 
 
+import { verifyToken } from '../auth';
+
 const bytes = utf8ToBytes('foo'); 
 const bufCV = bufferCV(bytes);
 
 export default function UserPage() {
-    
+
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -44,7 +46,7 @@ export default function UserPage() {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzZXNzaW9uS2V5IjoxMSwiaWF0IjoxNzAxMTczMDk0LCJleHAiOjE3MDExNzY2OTR9.WtBwVNHAz-yknSy7Wi6gi3IBuKrks7KnoyQdEF4tg_I'
+
           // Add any additional headers if needed (e.g., authorization token)
         },
       });
@@ -52,7 +54,6 @@ export default function UserPage() {
       if (response.ok) {
         // Handle successful deletion, update UI or perform additional actions
         console.log('User deleted successfully');
-        navigate('/users/');    
       } else {
         // Handle errors, maybe show an error message to the user
         console.error('Failed to delete user');
@@ -76,7 +77,7 @@ export default function UserPage() {
     fetchUserDetails();
   }, [id]);
 
-  
+
   const submitMessage = async (e) => {
     e.preventDefault();
 
@@ -103,11 +104,11 @@ export default function UserPage() {
     };
 
     const response = await openContractCall(options);
-    
+
   };
 
   return (
-    
+
     <section style={{ backgroundColor: '#eee' }}>
       <MDBContainer className="py-5">
         <MDBRow>
@@ -117,7 +118,7 @@ export default function UserPage() {
             <MDBCard className="mb-4">
               <MDBCardBody className="text-center">
               {userData.gender === 'F' ? (
-                        <MDBCardImage 
+                        <MDBCardImage
                         src="https://cdn-icons-png.flaticon.com/512/6214/6214743.png"
                         alt="Female Avatar"
                         className="my-5"
@@ -125,7 +126,7 @@ export default function UserPage() {
                         fluid
                         />
                     ) : (
-                        <MDBCardImage 
+                        <MDBCardImage
                         src="https://cdn-icons-png.flaticon.com/512/3001/3001764.png"
                         alt="Male Avatar"
                         className="my-5"
@@ -193,7 +194,7 @@ export default function UserPage() {
                             <p>Year: {movie.movieDetails[0].ano}</p>
                             <p>Genres : {movie.movieDetails[0].genres}</p>
                           </h6>
-                          
+
                         </MDBCardBody>
                       </MDBCard>
                     ))}

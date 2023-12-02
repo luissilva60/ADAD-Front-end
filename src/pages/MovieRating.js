@@ -2,29 +2,57 @@ import React, { useState } from 'react';
 import { verifyToken } from '../auth';
 import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput } from 'mdb-react-ui-kit';
 import Rating from 'react-rating-stars-component';
-import { useNavigate } from 'react-router-dom';
-
+import {useNavigate, useParams} from 'react-router-dom';
+import {useCookies} from "react-cookie";
 export default function MovieRating() {
+  const { id } = useParams();
   const navigate = useNavigate();
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');
-
+  const [cookies, removeCookie] = useCookies(['auth']);
   const handleRatingChange = (newRating) => {
     setRating(newRating);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent the default form submission behavior
-    // Add logic to submit the rating and comment
-    if(rating && comment) {
-      console.log(rating)
-      console.log(comment)
-      const requestBody = {
-        comment: comment,
-        date: Date.now(),
-      };
+
+    if (rating && comment) {
+      try {
+        // Retrieve user id from the token
+        const token = cookies.auth
+        const decodedToken = await verifyToken(token);
+        const userId = decodedToken.sessionKey;
+
+        // Create a request body
+        const requestBody = {
+          userId: userId,
+          movieId: id,
+          rating: rating,
+          comment: comment,
+          date: Date.now(),
+        };
+
+        // Send a POST request to the specified endpoint
+        const response = await fetch('https://api-adad-e27e767b86bc.herokuapp.com//comments', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(requestBody),
+        });
+
+        if (response.ok) {
+          console.log('Comment submitted successfully.');
+          // Navigate or perform any other actions as needed
+          navigate('/'); // Change the path accordingly
+        } else {
+          console.error('Failed to submit comment:', response.status);
+        }
+      } catch (error) {
+        console.error('Error submitting comment:', error.message);
+      }
     }
-    // Navigate or perform any other actions as needed
   };
 
   return (

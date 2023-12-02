@@ -43,27 +43,43 @@ export default function MoviePage() {
     fetchMovieDetails();
   }, [id]);
 
-  const submitMessage = async (e) => {
+  const submitMessage = async (e, movieId) => {
     e.preventDefault();
 
     const functionArgs = [bufCV];
 
     const options = {
-      contractAddress: "ST27519QH6K6AYYJ8BGRVF778655QPRQBWYHZY26Q",
-      contractName:
-        "blanket-since-hint-rabbit-audit-oppose-suit-flush-relax-know-modify-voice-breeze-afraid-amazing-sell-vacant-cause-end-chaos-tilt-there-south-chicken",
-      functionName: "test-emit-event",
-      functionArgs,
+      contractAddress: 'STAZ0PNVXVHEM7R4XF5EZ4SS5JFM1ZMAJRPZGVK0',
+      contractName: 'upper-teal-fox',
+      functionName: 'test-emit-event',
+      functionArgs: [],
       appDetails: {
-        name: "Movies App Rating",
-        icon: window.location.origin + "/my-app-logo.svg",
+        name: 'Movies App Rating',
+        icon: window.location.origin + '/my-app-logo.svg',
       },
-      onFinish: (data) => {
-        console.log("Stacks Transaction:", data.stacksTransaction);
-        console.log("Transaction ID:", data.txId);
-        console.log("Raw transaction:", data.txRaw);
+      onFinish: async (data) => {
+        console.log('Stacks Transaction:', data.stacksTransaction);
+        console.log('Transaction ID:', data.txId);
+        console.log('Raw transaction:', data.txRaw);
 
-        window.location.reload();
+        // Post the transaction ID to the specified endpoint
+        try {
+          const response = await fetch(`https://api-adad-e27e767b86bc.herokuapp.com/movies/addTransactionId/${id}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ txId: data.txId }),
+          });
+
+          if (response.ok) {
+            console.log('Transaction ID posted successfully.');
+          } else {
+            console.error('Failed to post Transaction ID:', response.status);
+          }
+        } catch (error) {
+          console.error('Error posting Transaction ID:', error.message);
+        }
       },
     };
 

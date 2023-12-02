@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import Card from 'react-bootstrap/Card';
 import {
   MDBCol,
   MDBContainer,
@@ -131,6 +132,7 @@ export default function UserPage() {
                         fluid
                         />
                     )}
+                <p className="text-muted mb-1">UserID: {userData._id}</p>
                 <p className="text-muted mb-1">Occupation: {userData.occupation}</p>
                 <p className="text-muted mb-4">Gender: {userData.gender}</p>
                 <div className="d-flex justify-content-center mb-2">
@@ -172,15 +174,34 @@ export default function UserPage() {
             </MDBCard>
 
             <MDBRow>
-              <MDBCol md="12">
+            <MDBCol md="12">
+              {userData.movies && userData.movies.length > 0 && (
                 <MDBCard className="mb-4 mb-md-0">
-                  <MDBCardBody>                  
+                  <MDBCardBody>
+                    <h5 className="d-flex justify-content-center mb-4">Top Movies</h5>
+                    {userData.movies.map((movie, index) => (
+                      <MDBCard key={index} className="mb-3">
+                        <MDBCardBody>
+                          <h6 className="card-title">
+                            <p>Movie: {movie.movieDetails[0].title}</p>
+                            <p>Movie ID: {movie.movieDetails[0]._id} &ensp; &ensp; &ensp; Rating: {movie.rating}
+                            <img
+                            src="https://mario.wiki.gallery/images/4/41/Artwork_-_SUPER_STAR.svg"
+                            style={{ width: 'auto', height: '2em', marginLeft: '5px', marginBottom:"10px"}}
+                          /></p>
+                            <p>Year: {movie.movieDetails[0].ano}</p>
+                            <p>Genres : {movie.movieDetails[0].genres}</p>
+                          </h6>
+                          
+                        </MDBCardBody>
+                      </MDBCard>
+                    ))}
                   </MDBCardBody>
                 </MDBCard>
-              </MDBCol>
-            </MDBRow>
-
-        </MDBCol>
+              )}
+            </MDBCol>
+          </MDBRow>
+          </MDBCol>
         </>
         )}
         </MDBRow>

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { verifyToken } from '../auth';
 import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput } from 'mdb-react-ui-kit';
 import Rating from 'react-rating-stars-component';
 import { useNavigate } from 'react-router-dom';
 
-export default function MovieRating(props) {
+export default function MovieRating() {
   const navigate = useNavigate();
   const [rating, setRating] = useState(0);
   const [comment, setComment] = useState('');
@@ -16,8 +17,16 @@ export default function MovieRating(props) {
     e.preventDefault(); // Prevent the default form submission behavior
     // Add logic to submit the rating and comment
     if(rating && comment) {
-      console.log('Rating:', rating);
-      console.log('Comment:', comment);
+      console.log(rating)
+      console.log(comment)
+      console.log(movie_id)
+      const requestBody = {
+        _id: "",
+        movie_id: movie_id,
+        user_id: _id,
+        comment: comment,
+        date: Date.now(),
+      };
     }
     // Navigate or perform any other actions as needed
   };

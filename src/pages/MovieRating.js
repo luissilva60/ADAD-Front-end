@@ -34,7 +34,7 @@ export default function MovieRating() {
         };
 
         // Send a POST request to the specified endpoint
-        const response = await fetch('https://api-adad-e27e767b86bc.herokuapp.com//comments', {
+        const response = await fetch('https://api-adad-e27e767b86bc.herokuapp.com/comments', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

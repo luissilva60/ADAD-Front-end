@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { verifyToken } from '../auth';
-import { MDBBtn, MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput } from 'mdb-react-ui-kit';
+import { MDBContainer, MDBRow, MDBCol, MDBCard, MDBCardBody, MDBInput } from 'mdb-react-ui-kit';
 import Rating from 'react-rating-stars-component';
 import {useNavigate, useParams} from 'react-router-dom';
 import {useCookies} from "react-cookie";
